@@ -26,7 +26,7 @@ import {
   Settings as SettingsIcon,
 } from "@mui/icons-material";
 
-const Sidebar = () => {
+export const Sidebar = () => {
   const pathname = usePathname();
   const [openSubMenu, setOpenSubMenu] = useState({});
 
@@ -166,5 +166,3 @@ const Sidebar = () => {
     </div>
   );
 };
-
-export default Sidebar;

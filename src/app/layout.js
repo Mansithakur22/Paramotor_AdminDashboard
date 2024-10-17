@@ -1,8 +1,8 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 // import Sidebar from "./components/sidebar";
-import Header from "./components/header";
-import Newsidebar from "./components/newsidebar";
+import Header from "../components/header";
+import { Layout } from "../components";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,9 +15,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="bg-gray-100 p-8">
-        <Newsidebar>
+        <Layout>
          {children}
-        </Newsidebar>
+        </Layout>
       </body>
     </html>
   );

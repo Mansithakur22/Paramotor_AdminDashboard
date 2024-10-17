@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import styles from './Sidebar.module.css';
 
-export default function Header() {
+export function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.logo}>

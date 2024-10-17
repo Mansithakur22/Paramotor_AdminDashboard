@@ -1,6 +1,6 @@
-"use client";
-import React, { useState } from "react";
-import dynamic from "next/dynamic";
+'use client';
+import React, { useState } from 'react';
+import dynamic from 'next/dynamic';
 import {
   Button,
   TextField,
@@ -8,16 +8,22 @@ import {
   Card,
   CardContent,
   Box,
-} from "@mui/material";
-
-// Dynamically import CKEditor
-const CKEditor = dynamic(() => import("@ckeditor/ckeditor5-react").then(mod => mod.CKEditor), { ssr: false });
-const ClassicEditor = dynamic(() => import("@ckeditor/ckeditor5-build-classic"), { ssr: false });
+  Stack,
+} from '@mui/material';
+import {
+  HtmlEditor,
+  Image,
+  Inject,
+  Link,
+  QuickToolbar,
+  RichTextEditorComponent,
+  Toolbar,
+} from '@syncfusion/ej2-react-richtexteditor';
 
 const AddProduct = () => {
   const [image, setImage] = useState(null);
-  const [name, setName] = useState("");
-  const [editorContent, setEditorContent] = useState("");
+  const [name, setName] = useState('');
+  const [editorContent, setEditorContent] = useState('');
 
   // Handle image upload
   const handleImageChange = (e) => {
@@ -34,12 +40,11 @@ const AddProduct = () => {
       image,
     };
 
-    console.log("Data Submitted:", productData);
+    console.log('Data Submitted:', productData);
   };
 
   return (
-    <Card>
-      <CardContent>
+    <Stack>
         <Typography variant="h5" gutterBottom>
           Add New Product
         </Typography>
@@ -47,7 +52,7 @@ const AddProduct = () => {
           {/* Image Upload */}
           <Box mb={2}>
             <Typography variant="body1" gutterBottom>
-              Image <span style={{ color: "red" }}>*</span>:
+              Image <span style={{ color: 'red' }}>*</span>:
             </Typography>
             <Button variant="contained" component="label">
               Choose Image
@@ -63,7 +68,11 @@ const AddProduct = () => {
                 <img
                   src={image}
                   alt="Uploaded"
-                  style={{ width: "270px", height: "290px", objectFit: "cover" }}
+                  style={{
+                    width: '270px',
+                    height: '290px',
+                    objectFit: 'cover',
+                  }}
                 />
               </Box>
             )}
@@ -76,7 +85,7 @@ const AddProduct = () => {
           {/* Name Field */}
           <Box mb={2}>
             <Typography variant="body1" gutterBottom>
-              Name <span style={{ color: "red" }}>*</span>:
+              Name <span style={{ color: 'red' }}>*</span>:
             </Typography>
             <TextField
               fullWidth
@@ -91,7 +100,7 @@ const AddProduct = () => {
           {/* Text/Content Field using CKEditor */}
           <Box mb={2}>
             <Typography variant="body1" gutterBottom>
-              Text <span style={{ color: "red" }}>*</span>:
+              Text <span style={{ color: 'red' }}>*</span>:
             </Typography>
             <TextField
               fullWidth
@@ -118,8 +127,12 @@ const AddProduct = () => {
             </Button>
           </Box>
         </form>
-      </CardContent>
-    </Card>
+      <Box>
+        <RichTextEditorComponent >
+          <Inject services={[Toolbar, Link, Image, HtmlEditor, QuickToolbar]} />
+        </RichTextEditorComponent>
+      </Box>
+    </Stack>
   );
 };
 

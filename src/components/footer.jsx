@@ -1,6 +1,6 @@
 import styles from './Sidebar.module.css'
 
-export default function Footer() {
+export function Footer() {
     return (
       <footer className={styles.footer}>
         <p>&copy; {new Date().getFullYear()} Admin Dashboard. All rights reserved.</p>
