@@ -47,8 +47,8 @@ const demoTheme = createTheme({
 
 
 function DashboardLayoutNavigationNested({children}) {
-  const base_url=`localhost:3000`
-  // const { window } = props;
+  const base_url = process.env.NEXT_PUBLIC_BASE_URL;
+    // const { window } = props;
 
   // const [pathname, setPathname] = React.useState("/movies/lord-of-the-rings");
 
