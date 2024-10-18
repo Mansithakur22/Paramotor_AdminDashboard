@@ -1,24 +1,12 @@
 'use client';
 import React, { useState } from 'react';
-import dynamic from 'next/dynamic';
 import {
   Button,
   TextField,
   Typography,
-  Card,
-  CardContent,
   Box,
   Stack,
 } from '@mui/material';
-import {
-  HtmlEditor,
-  Image,
-  Inject,
-  Link,
-  QuickToolbar,
-  RichTextEditorComponent,
-  Toolbar,
-} from '@syncfusion/ej2-react-richtexteditor';
 
 const AddProduct = () => {
   const [image, setImage] = useState(null);
@@ -76,10 +64,6 @@ const AddProduct = () => {
                 />
               </Box>
             )}
-            {/* <Typography variant="caption" display="block">
-              Upload 270x290 (Pixel) Size image for best quality. Only jpg, jpeg,
-              png image is allowed.
-            </Typography> */}
           </Box>
 
           {/* Name Field */}
@@ -110,28 +94,15 @@ const AddProduct = () => {
               onChange={(e) => setName(e.target.value)}
               required
             />
-            {/* <CKEditor
-              editor={ClassicEditor}
-              data={editorContent}
-              onChange={(event, editor) => {
-                const data = editor.getData();
-                setEditorContent(data);
-              }}
-            /> */}
+    
           </Box>
-
-          {/* Submit Button */}
           <Box mt={2}>
             <Button type="submit" variant="contained" color="primary">
               Submit Product
             </Button>
           </Box>
         </form>
-      <Box>
-        <RichTextEditorComponent >
-          <Inject services={[Toolbar, Link, Image, HtmlEditor, QuickToolbar]} />
-        </RichTextEditorComponent>
-      </Box>
+      
     </Stack>
   );
 };
